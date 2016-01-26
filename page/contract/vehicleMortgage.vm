@@ -1,0 +1,14 @@
+#set($title="车辆抵押合同")
+
+## 页面头
+#parse('/widget/contract/header-contract-m.vm')
+
+<section class="container">
+    #parse('/widget/navbar/navbar.vm')
+    
+    ## M端与PDF版共用
+    #parse('/widget/contract/vehicleMortgage.vm')
+</section>
+
+## 页脚
+#parse('/widget/contract/footer.vm')

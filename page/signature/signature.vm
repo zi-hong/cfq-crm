@@ -1,0 +1,43 @@
+#set($title="合同签名")
+
+<!DOCTYPE html>
+<html>
+<head>
+    #set($title = "合同签署")
+    #parse('/widget/header/header.vm')
+    <link rel="stylesheet" href="./signature.scss">
+</head>
+<body>
+    #set($title = "合同签署")
+    #set($backHref = "javascript:history.back()")
+    #parse('/widget/navbar/navbar.vm')
+    
+    <input type="hidden" value="$!{userId}" id="userId">
+
+    <section class="container">
+        <section class="main">
+            <section class="signature">
+                <section class="row-canvas">
+                    <canvas id="canvas"></canvas>
+                </section>
+                <section class="row-buttons">
+                    <button type="button" id="btn-clear" class="btn-clear">重签</button>
+                    <button type="button" id="btn-save" class="btn-save">提交</button>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    ##------------------------------------
+    ## scripts
+    ##------------------------------------
+    __FRAMEWORK_CONFIG__
+    <script>
+
+    require(['page/signature/signature'],function(app){
+        //console.log(app)
+    });
+
+    </script>
+</body>
+</html>

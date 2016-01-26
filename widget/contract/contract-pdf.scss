@@ -1,0 +1,118 @@
+body {
+    font-family: SimSun;
+    font-size: 14px;
+    line-height: 24px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.mt100 {
+    margin-top: 300px;
+}
+
+.mt200 {
+    margin-top: 510px;
+}
+
+.protocol {
+    padding: 20px;
+    .logo {
+        height: 42px;
+        .left {
+            float: left;
+
+            width: 230px;
+            height: 42px;
+        }
+        .right {
+            float: right;
+
+            width: 146px;
+            height: 42px;
+        }
+    }
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    h3 {
+        font-size: 16px;
+
+        text-indent: 2em;
+    }
+    h4 {
+        text-indent: 2em;
+    }
+    p {
+        text-indent: 2em;
+        word-break: break-word;
+    }
+    .underline {
+        margin: 0 10px;
+
+        text-decoration: underline;
+    }
+    .tc {
+        text-align: center;
+    }
+    .b {
+        font-weight: bold;
+    }
+    .i {
+        font-style: italic;
+    }
+    .signatureA {
+        display: table;
+        span {
+            display: table-cell;
+
+            vertical-align: top;
+        }
+        img {
+            width: 60px;
+        }
+    }
+}
+
+.table {
+    line-height: 1.5;
+
+    width: 100%;
+    margin: 0 auto;
+
+    border-spacing: 0;
+    border-collapse: collapse;
+    td {
+        padding: 5px;
+
+        vertical-align: top;
+
+        border: 1px solid #ddd;
+        p {
+            margin: 0;
+
+            text-indent: 0;
+        }
+    }
+}
+
+.table-border-none td {
+    border: none;
+}
+
+.pr {
+    position: relative;
+}
+
+.seal {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+@page {
+    size: letter;
+}

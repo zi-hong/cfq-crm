@@ -1,0 +1,21 @@
+
+<title>#if(${title})${title}#else 58车分期#end</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+
+<link rel="shortcut icon" href="http://static.58.com/back/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/scss/common.scss">
+<script src="/static/components/mod.js"></script>
+<script>
+    //requirejs.config({
+        //默认情况下模块所在目录为js/lib
+        //baseUrl: 'static'
+        //当模块id前缀为app时，他便由js/app加载模块文件
+        //这里设置的路径是相对与baseUrl的，不要包含.js
+        //paths: {
+        //    app: '../app'
+        //}
+    //});
+</script>

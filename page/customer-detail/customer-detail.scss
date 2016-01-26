@@ -1,0 +1,273 @@
+@import "/static/scss/_button";
+@import "/static/scss/zepto.modal";
+@import "/static/scss/zepto.info";
+
+.flex-box {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    box-orient: horizontal;
+    padding: 5px 10px 5px;
+}
+
+.col-1 {
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    width:0%;
+}
+
+@mixin circle($backgroundColor: orange, $color: #ffffff,$width:20px,$radius:10px) {
+    margin: 0 auto;
+    margin-top: $width;
+    width:$width;
+    height:$width;
+    background:$backgroundColor;
+    border-radius:$radius;
+    position:absolute;
+    top:50%;
+    margin-top:-$radius;
+    left:50%;
+    margin-left:-$radius;
+
+    span {
+        height:$width;
+        width:$width;
+        line-height:$width;
+        display:block;
+        color:$color;
+        text-align:center
+    }
+}
+
+.customer-detail {
+    background: #ffffff;
+    font-size: 16px;
+    color: #666666;
+    position:relative;
+    
+    
+    a {
+        &:link, &:visited {
+            color: #666666;
+        }
+    }
+    
+
+    .detail-top  {
+        padding: 10px 10px 0px;
+        .info-value {
+            text-align: center;
+        }
+        .high-light {
+            color: orange;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+    .detail-bottom  {
+        padding: 0px 10px 10px;
+        .info-caption {
+            text-align: center;
+            font-size: 14px;
+        }
+    }
+    .control-button {
+        border-top: 1px solid #cccccc;
+        padding: 2px 10px;
+
+        .action-item {
+            text-align: center;
+            height:23px;
+            line-height: 23px;
+            padding-top: 10px;
+            &:last-child {
+                border-left: 1px solid #cccccc;
+            }
+            .icon-wrapper {
+
+                width: 80px;
+                margin:0 auto;
+                span {
+                    display: inline-block;
+                }
+                .icon {
+                    width:20px;
+                    height:20px;
+                    margin-left:-20px;
+                    position:absolute;
+                }
+                .icon-mobile {
+                    content: url(/static/img/icons/icon-phone.png?__inline);
+                }
+                .icon-contract {
+                    content: url(/static/img/icons/icon-contract.png?__inline);
+                }
+            }
+        }
+    }
+    .follow {
+        background: #f0f0f2;
+        border-width: 1px 0px;
+
+        padding: 10px;
+        .follow-item {
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #cccccc;
+            border-radius: 20px;
+            margin-top: 10px;
+            margin-left: 5px;
+            font-size: 12px;
+            padding: 0px;
+            text-align: center;
+            background: #ffffff;
+            &.active {
+                border: 1px solid orange;
+            }
+        }
+    }
+    .divider {
+        width: 100%;
+        height: 10px;
+        background: #f0f0f2;
+        border: 1px solid #ccc;
+        border-width: 1px 0px;
+    }
+    textarea {
+        margin: 1rem 0rem;
+        -webkit-appearance: none;
+        border: 1px solid #cccccc;
+    }
+    .btn-submit {
+        @include button;
+        margin: 1rem 0rem;
+    }
+    .status {
+
+        background: #f0f0f2;
+        min-height: 55px;
+
+        .history-item {
+            .left {
+                width: 50px;
+                position: relative;
+                .circle {
+                    @include circle;
+                }
+            }
+            .right {
+                background: #ffffff;
+                border-radius: 5px;
+                padding: 3px 5px;
+                .h-time {
+                    position: absolute;
+                    right: 15px;
+                    font-size:12px;
+                }
+                .h-detail {
+                    font-size:12px;
+                }
+            }
+        }
+
+    }
+
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*弹出菜单*/
+#drop-down-wrapper {
+    position: absolute;
+    right: 11px;
+    top: 46px; 
+    z-index: 3;
+    
+    a {
+        overflow: hidden;
+        display: block;
+        
+        &:link, &:visited {
+            color: #666666;
+        }
+    }
+
+    .arrow-up {
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 10px solid white;
+        -webkit-transform: translate(85px)
+    }
+    #drop-down-menu {
+        padding: 10px;
+        border-radius: 10px;
+        width: 120px;
+        right: 0px;
+        top: 0px;
+        background: white;
+        ul {
+            width: 120px;
+            list-style: none;
+            li {
+                float: left;
+                width: 120px;
+                height:40px;
+                line-height:40px;
+                background-size: 20px;
+                cursor: pointer;
+                border-bottom: 1px solid #ccc;
+                
+                &.li-car-apply {
+                    border-bottom-width: 0px;
+                }
+                .li-contract {
+                    width: 20px;
+                    height:20px;
+                    vertical-align: middle;
+                    content: url(/static/img/icons/icon-signature.png?__inline);
+                }
+                .li-loan-apply{
+                    width: 20px;
+                    height:20px;
+                    vertical-align: middle;
+                    content: url(/static/img/icons/icon-money.png?__inline);
+                }
+                .li-car-apply {
+                    width: 20px;
+                    height:20px;
+                    vertical-align: middle;
+                    content: url(/static/img/icons/icon-car.png?__inline);
+                }
+                span {
+                    display: inline-block;
+                    padding-left: 10px;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

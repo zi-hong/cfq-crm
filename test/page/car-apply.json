@@ -1,0 +1,13 @@
+{
+    "userId": 66,
+    "editFlag": 1,
+    "GPSinstall": 0,
+    "mortage": 1,
+    "insurance": 0,
+    "registrationCertificate1": "/static/img/example/positive.jpg",
+    "commercialInsurance": "/static/img/example/positive.jpg",
+    "compulsoryInsurance": "/static/img/example/positive.jpg",
+    "carPhoto": "/static/img/example/positive.jpg",
+    "transferInvoice": "/static/img/example/positive.jpg",
+    "remark": "ddd"
+}

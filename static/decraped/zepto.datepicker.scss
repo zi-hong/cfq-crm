@@ -1,0 +1,125 @@
+@import 'zepto.modal.scss';
+
+
+$dotted-border: 1px dotted gray;
+
+
+.date-picker-force-invisible {
+    display: none!important;
+}
+
+.year-modal-body {
+    
+    .content {
+        display: -webkit-box;
+        margin: 10px 0;
+        
+        .prev, .next {
+            display: -webkit-box;
+            position: relative;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            width: 60px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.3);
+            
+            &:before {
+                display: block;
+                content: "";
+                font-size: 0;
+                border-width: 18px;
+                border-style: solid;
+                border-color: transparent transparent transparent #dadada;
+            }
+        }
+        .prev:before {
+            transform: translate(-0.1rem,-0.1rem) rotate(180deg);
+            -webkit-transform: translate(-0.1rem,-0.1rem) rotate(180deg);
+        }
+        .next:before {
+            transform: translate(0.14rem,-0.1rem);
+            -webkit-transform: translate(0.14rem,-0.1rem);
+        }
+        .year-items-wrap {
+            -webkit-box-flex: 1;
+        }
+    }
+    
+    
+    /** 废弃，使用新样式
+    .paging {
+        overflow: hidden;
+        
+        .prev, .next {
+            display: block;
+            position: relative;
+            height: 38px;
+            width: 50px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.3);
+            
+            &:before {
+                content: "";
+                font-size: 0;
+                height: 0;
+                width: 0;
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                border-width: 7px;
+                border-style: solid;
+                border-color: transparent transparent transparent #dadada;
+            }
+        }
+        .prev {
+            &:before {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+        }
+        .next {
+            float: right;
+        }
+    }
+    **/
+    
+    
+    
+    .year-items {
+        padding: 0 4px 4px 4px;
+        text-align: center;
+        display: none;
+        
+        li {
+            overflow: hidden;
+            border-top: $dotted-border;
+            border-right: $dotted-border;
+            
+            &:last-child {
+                border-bottom: $dotted-border;
+            }
+        }
+        a {
+            width: 50%;
+            border-left: $dotted-border;
+            padding: 12px 0;
+            font-size: 14px;
+            box-sizing: border-box;
+            float: left;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.3);
+            
+            &:last-child {
+                border-right-width: 0;
+            }
+        }
+        
+        
+    }
+    
+    
+    .year-items-shown {
+        display: block;
+    }
+    
+    
+    
+    
+}

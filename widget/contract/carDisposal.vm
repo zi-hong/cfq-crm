@@ -1,0 +1,58 @@
+
+##收车及处置授权书
+
+
+<div class="protocol">
+    <div class="logo">
+        <img src="/static/img/contract/logo_58.png" class="right" />
+    </div>
+    <h1 class="tc b">$!{title}</h1>
+    <h3 class="tc"></h3>
+    <p>承租人#ModuleContract($realName true)与伍捌（深圳)融资租赁有限公司签订了编号为 #ModuleContract( $contractID true)《融资租赁回租合同》，《融资租赁回租合同》项下的租赁车辆详见下表：</p>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td width="25%">品牌</td>
+                <td width="25%">车辆型号</td>
+                <td width="25%">车架号</td>
+                <td>车牌号</td>
+            </tr>
+            <tr>
+                <td>$!{vehicleBrand}</td>
+                <td>$!{vehicleType}</td>
+                <td>$!{vehicleChassisNum}</td>
+                <td>$!{vehicleLicense}</td>
+            </tr>
+        </tbody>
+    </table>
+                
+    <p class="ti0">注：租赁物还包括技术资料、配件、随车附件等。</p>
+    <p>现承租人无条件同意伍捌（深圳)融资租赁有限公司在承租人出现违反《融资租赁回租合同》及承租人与伍捌（深圳)融资租赁有限公司、哈尔滨银行股份有限公司签署的《哈尔滨银行-58金融消费贷（车分期）联合贷款合同》相关约定的情形时（包括但不限于未按期足额支付《融资租赁回租合同》租金、转让租赁物、未按期足额支付《哈尔滨银行-58金融消费贷（车分期）联合贷款合同》授信贷款等情形），直接采取以下措施维护伍捌（深圳)融资租赁有限公司权益：</p>
+    <p>1、伍捌（深圳)融资租赁有限公司可自行或授权第三方将承租人名下车辆收回并进行处置，用于清偿承租人对伍捌（深圳)融资租赁有限公司的债务；</p>
+    <p>2、承租人应积极配合收车、并放弃一切抗辩权（包括但不限于对收车行为、车辆收回相关费用、收车处置价格的异议）；</p>
+    <p>3、收车产生的费用由承租人承担（包括但不限于车辆收回费用、再次拍卖变卖费用、运输存放费用等)；</p>
+    <p>4、车辆收回处置后的价款不足以偿还承租人对伍捌（深圳)融资租赁有限公司欠款时，不足部分承租人负责清偿；</p>
+    <p>5、收车过程中造成的一切责任和损失均由承租人自行承担，与伍捌（深圳)融资租赁有限公司无关；</p>
+    <p>本授权为不可撤销授权，有效期自本授权书出具之日起至承租人清偿完毕所有对伍捌（深圳)融资租赁有限公司的债务之日止。</p>
+
+    <br/>
+    <table class="table table-border-none">
+        <tbody>
+            <tr>
+                <td width="100%">
+                    <p class="signatureA ti0">
+                        <span>承租人（签字）：</span>
+                        #if($signature)
+                        <img src="$!{signature}" />
+                        #end
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="ti0">签订日期：#ModuleContract( $AYear false )年 #ModuleContract( $AMonth false)月 #ModuleContract( $ADay false)日</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

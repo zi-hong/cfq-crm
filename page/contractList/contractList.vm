@@ -1,0 +1,80 @@
+#* 状态说明
+*  5: 补充资料
+*  7: 未签合同及合同审核失败，重签
+*  10：已签约，合同审批中
+*  20: 合同审批通过	
+*#
+
+#set($title="合同")
+
+#set($backHref = "/market/customer/detail?userId=$!{userId}")
+
+#**
+* $carDealerType: {
+* 	1: "瓜子版",
+* 	2: "个人车商",
+* 	3: "法人车商（对公账户）"
+* }
+*
+* {
+* 	"txt": "合同名称简述",
+* 	"type": "协议采用同一个请求url，根据type来区分不同类型"
+* }
+*#
+
+
+#set($contractList = {
+	"1": {
+		"txt": "《融资租赁回租合同》",
+		"type": ""
+	},
+	"2": {
+		"txt": "《收车及处置授权书》",
+		"type": "2"
+	},
+	"3":{
+		"txt": "《委托扣款授权书》",
+		"type": "3"
+	},
+	"4": {
+		"txt": "《联合贷款合同》",
+		"type": "4"
+	}
+})
+
+
+#if($carDealerType == 1 || $carDealerType == 3) 
+	#set($contractList.get("1").type = "11")
+
+#elseif($carDealerType == 2)
+	#set($contractList.get("1").type = "12")
+
+	#set($contractList["5"] = {
+		"txt": "《二手车辆买卖协议》",
+		"type": "5"
+	})
+
+#else
+
+#end
+
+
+#parse('/widget/header/header.vm')
+#[[
+<link rel="stylesheet" href="./contractList.scss">
+]]#
+<section class="container">
+	#parse('/widget/navbar/navbar.vm')
+	<section class="main">
+		<ul class="ulist">
+
+			#foreach($key in $contractList.keySet())
+			<li>
+				<a href="/market/customer/contract?type=$!{contractList.get($key).type}&userId=$!{userId}" title="$!{contractList.get($key).txt}">$!{contractList.get($key).txt}</a>
+			</li>
+			#end
+			
+		</ul>
+	</section>
+</section>
+#parse("/widget/footer/footer.vm")

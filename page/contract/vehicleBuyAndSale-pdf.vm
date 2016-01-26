@@ -1,0 +1,10 @@
+#set($title="二手车辆买卖协议")
+
+## 页头
+#parse('/widget/contract/header-contract-pdf.vm')
+
+## M端与PDF版共用
+#parse('/widget/contract/vehicleBuyAndSale.vm')
+
+## 页脚
+#parse('/widget/contract/footer.vm')

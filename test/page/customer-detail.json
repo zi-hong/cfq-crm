@@ -1,0 +1,20 @@
+{
+  "isHasCarDealerType": 1,
+  "customerName": "张三王",
+  "userId": 19,
+  "MaxLoanAmount": 30000,
+  "interate": 0.36,
+  "phoneNumber": "15810852120",
+  "applyDate": "2015-09-08",
+  "leftDay": 30,
+  "channel": "卓杰行",
+  "followRecordResultList": [{
+    "recordStatus": "4",
+    "recordTime": "2015-10-10 12:00",
+    "recordRemark": "客户只在网上看了一下，还得到线下去看车"
+  }, {
+    "recordStatus": "8",
+    "recordTime": "2015-10-10 12:00",
+    "recordRemark": "客户只在网上看了一下，还得到线下去看车"
+  }]
+}

@@ -1,0 +1,23 @@
+{
+    "userId": 88,
+    "editFlag": 1,
+    "driverLicense": null,
+    "mileage": "/static/img/example/positive.jpg",
+    "mortgageContract": "/static/img/example/positive.jpg",
+    "firstPaymentReceipt": "/static/img/example/positive.jpg",
+    "purchaseInvoice": "/static/img/example/positive.jpg",
+    "mortgagePage": [
+        "/static/img/example/creditcard.jpg",
+        "/static/img/example/goods.jpg",
+        "/static/img/example/goods.jpg",
+        "/static/img/example/creditcard.jpg",
+        "/static/img/example/goods.jpg"
+    ],
+    "carPhoto5": [
+        "/static/img/example/goods.jpg",
+        "/static/img/example/goods.jpg",
+        "/static/img/example/goods.jpg",
+        "/static/img/example/goods.jpg"
+    ],
+    "remark": "this is remark of loan"
+}

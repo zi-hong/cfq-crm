@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    #set($title = "客户详情")
+    #parse('/widget/header/header.vm')
+    <link rel="stylesheet" href="./customer-detail.scss">
+    
+    #set($followRecordMap = {
+        "1": "电话未打通",
+        "2": "暂时不方便",
+        "3": "已购车",
+        "4": "主动放弃",
+        "5": "上外地牌",
+        "6": "符合准入条件",
+        "7": "其他",
+        "8": "已确认购车",
+        "9": "已推荐车商",
+        "10": "看车中",
+        "11": "等待指标中"
+    })
+</head>
+<body>
+    #set($title = "$!{customerName}")
+    #set($backHref = "/market/customer/list")
+    #set($menu = "dropdown")
+    #parse('/widget/navbar/navbar.vm')
+
+    <script>
+    var __JSON_ON_PAGE__ = {
+        userId: '$!{userId}',
+        isSignature: '$!{isSignature}'
+    };
+    </script>
+    
+    <div class="customer-detail">
+        
+        <div class="detail-top">
+            <div class="flex-box">
+                <div class="info-value col-1"><span class="high-light">$!{MaxLoanAmount}</span></div>
+                <div class="info-value col-1"><span class="high-light">$!{interate}</span><span class="high-light">%</span></div>
+                <div class="info-value col-1"><span class="high-light">$!{leftDay}</span><span>天</span></div>
+            </div>
+        </div>
+        
+        <div class="detail-bottom">
+            <div class="flex-box">
+                <div class="info-caption col-1">最大贷款额度</div>
+                <div class="info-caption col-1">利率</div>
+                <div class="info-caption col-1">剩余有效天数</div>
+            </div>
+        </div>
+        
+        <div class="control-button">
+            <div class="flex-box">
+                <div class="action-item col-1">
+                    <div class="icon-wrapper"><a href="tel:$!{phoneNumber}"><span class="icon icon-mobile"></span><span>拔打电话</span></a></div>
+                </div>
+                <div class="action-item col-1">
+                    <div class="icon-wrapper">
+                        #* 
+                        * add by zuojj
+                        * isHasCarDealerType {1: "能获取到车商类型，可以查看合同", "其他": "不可以"}
+                        *#
+                        #if($isHasCarDealerType == 1)
+                            <a href="/market/customer/protocol?userId=$!{userId}">
+                                <span class="icon icon-contract"></span>
+                                <span>查看合同</span>
+                            </a>
+                        #else
+                            <span style="opacity:.2">
+                                <span class="icon icon-contract"></span>
+                                <span>查看合同</span>
+                            </span> 
+                        #end
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <div class="follow">
+            <form id="form" action="/market/customer/telresult/add" method="post">
+                <input type="hidden" name="userId" value='$userId'>
+                <input type="hidden" class="follow-record" name="recordType" 
+                    data-validate='{"errmsg":"跟进记录 至少选择一项","rule": "isNonEmpty"}'>
+                <h4>跟进记录</h4>
+                <div class="flex-box">
+                    <div class="follow-item col-1" id="8">$followRecordMap.get("8")</div>
+                    <div class="follow-item col-1" id="4">$followRecordMap.get("4")</div>
+                    <div class="follow-item col-1" id="9">$followRecordMap.get("9")</div>
+                </div>
+                <div class="flex-box">
+                    <div class="follow-item col-1" id="10">$followRecordMap.get("10")</div>
+                    <div class="follow-item col-1" id="11">$followRecordMap.get("11")</div>
+                    <div class="follow-item col-1" id="5">$followRecordMap.get("5")</div>
+                </div>
+                <div class="flex-box">
+                    <div class="follow-item col-1" id="7">$followRecordMap.get("7")</div>
+                </div>
+                <div class="remark">
+                    <textarea rows="5" name="remark" class="remark-textarea" style="width:100%;" placeholder="备注及其他情况请在此说明"></textarea>
+                </div>
+                <button type="button" id="btn-submit" class="btn-submit">提交</button>
+            </form>
+        </div>
+        
+        
+        <div class="status">
+            #foreach($item in $followRecordResultList)
+            <div class="history-item flex-box">
+                <div class="left">
+                    <div class="circle">
+                        <span>$velocityCount</span>
+                    </div>
+                </div>
+                <div class="right col-1">
+                    <div>
+                        <span class="h-status">$!{followRecordMap.get("${item.recordStatus}")}</span>
+                        <span class="h-time">$!{item.recordTime}</span>
+                    </div>
+                    <div>
+                        <p class="h-detail">$!{item.recordRemark}</p>
+                    </div>
+                </div>
+            </div>
+            #end
+        </div>
+        
+    </div>
+    
+    
+    
+    
+    
+    <!-- 弹出菜单 -->
+    <!-- 弹出菜单遮罩层 -->
+    <!-- 移入zepto.modal -->
+
+
+
+
+    ##------------------------------------
+    ## scripts
+    ##------------------------------------
+    __FRAMEWORK_CONFIG__
+    <script>
+    require(['page/customer-detail/customer-detail'],function(app){
+        app();
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+.ulist {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    li {
+        position: relative;
+        height: 44px;
+        font-size: 14px;
+        padding-left: 12px;
+        a {
+            display: block;
+            padding-right: 24px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+            line-height: 43px;
+            color: #999;
+        }
+        &:last-child {
+            a {
+                border: none;
+            }
+        }
+
+        &:active {
+            background-color: #ddd;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 18px;
+            top: 13px;
+            right: 12px;
+            background: url(/static/img/icons/icon-arrow-right.png);
+            background-size: 100% 100%;
+        }
+    }
+}
+

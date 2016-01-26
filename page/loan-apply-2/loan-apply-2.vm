@@ -1,0 +1,189 @@
+#set($itemMap = [
+    {
+        "id":"driverLicense",
+        "imgSrc":$driverLicense,
+        "title":"上传驾驶证(1张*非必传)",
+        "required":false,
+        "maxuploadnum":1
+    },{
+        "id":"mileage",
+        "imgSrc":$mileage,
+        "title":"车辆里程数照片(1张*必传)",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"mortgageContract",
+        "imgSrc":$mortgageContract,
+        "title":"抵押合同(1张*必传)",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"firstPaymentReceipt",
+        "imgSrc":$firstPaymentReceipt,
+        "title":"用户首付款收据(1张*必传)",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"car_front",
+        "imgSrc":$car_front,
+        "title":"车辆照片(正面)(1张*必传)",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"car_end",
+        "imgSrc":$car_end,
+        "title":"车辆照片(后面)(1张*必传)",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"car_left",
+        "imgSrc":$car_left,
+        "title":"车辆照片(左面)(1张*必传)",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"car_right",
+        "imgSrc":$car_right,
+        "title":"车辆照片(右面)(1张*必传)",
+        "required":true,
+        "maxuploadnum":1
+    }
+])
+## 获取车辆照片，抵押页列表数
+#set($mortgagePageSize = $mortgagePage.size())
+#set($carPhotoSize = $carPhoto.size())
+
+#*
+* 遍历items
+*#
+#macro(Items $arr)
+    #foreach( $i in $arr)
+        #if($i < $mortgagePageSize && $mortgagePage.get($i))
+            <div class="m-item completed" style='background-image:url($!{mortgagePage[$i]})' data-action="doReview" data-src="$!{mortgagePage[$i]}">
+            </div>
+        #else
+            <div class="m-item"></div>
+        #end
+    #end
+#end
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    #set($title = "放款申请")
+    #parse('/widget/header/header.vm')
+    <link rel="stylesheet" href="./loan-apply-2.scss">
+</head>
+<body>
+    #set($title = "放款申请")
+    #set($backHref = "/market/customer/loan/apply?userId=$!{userId}")
+    #parse('/widget/navbar/navbar.vm')
+
+    <section class="flex-box  progress-bar-step2">
+        <div class="col-1">1 基本信息</div>
+        <div class="arrow-right-1" ></div>
+        <div>
+            <div class="arrow-left-top-2"></div>
+            <div class="arrow-left-bottom-2"></div>
+        </div>
+        <div class="col-1">2 影像资料</div>
+        <div class="arrow-right-2" ></div>
+        <div>
+            <div class="arrow-left-top-3"></div>
+            <div class="arrow-left-bottom-3"></div>
+        </div>
+        <div class="col-1">3 成功</div>
+    </section>
+
+    <section class="container">
+
+        <div class="module">
+
+
+            #foreach( $item in $itemMap)
+            <dl class="m-list no-brd" data-require='$item.required'>
+                <dt>
+                    $!{item.title}
+                </dt>
+                <dd>
+                    <input type="file" accept="image/*" name='$item.id' id='$item.id' data-maxuploadnum='$item.maxuploadnum'>
+                    #if($editFlag == 1)
+                    <label class="m-item" for='$item.id'></label>
+                    #end
+
+                    #if($item.imgSrc)
+                        <div class="m-item completed" style="background-image:url($!{item.imgSrc})"  data-action="doReview" data-src="$!{item.imgSrc}">
+
+                        </div>
+                    #else
+                        <div class="m-item"></div>
+                    #end
+                    <div class="m-item"></div>
+                    <div class="m-item"></div>
+                </dd>
+            </dl>
+            #end
+
+
+            <dl class="m-list" data-require='true'>
+                <dt>
+                    机动车登记证照片(抵押页及过户页)(*必传,最多 5 张)
+                </dt>
+                
+                <dd>
+                    <input type="file" accept="image/*" name="mortgagePage" id="mortgagePage" data-maxuploadnum="5">
+                    #if($editFlag == 1) ##1的话需要多显示一个加号标签
+                        <label class="m-item" for="mortgagePage"></label>
+                        #Items([0..2])
+                    #else
+                        #Items([0..3])
+                    #end
+                </dd>
+                
+                #if($editFlag == 1 && $mortgagePageSize >= 3 && $mortgagePageSize <= 7 )
+                <dd>
+                    #Items([3..6])
+                </dd>
+                #elseif($editFlag != 1 && $mortgagePageSize >= 4 && $mortgagePageSize <= 7 )
+                <dd>
+                    #Items([4..6])
+                </dd>
+                #end
+                    
+
+            </dl>
+        </div>
+    </section>
+    <form method="post" id="form">
+        <input type="hidden" class="userId" name = "userId" value='$!{userId}' />
+        <input type="hidden" class="editFlag" value='$!{editFlag}' />
+
+        <div class="remark">
+            #if($!{editFlag} == 1)
+                <textarea rows="5" name="remark" class="remark-textarea" style="width:100%;" placeholder="备注及其他情况请在此说明">$!{remark}</textarea>
+            #else
+                <p>补充说明:</p>
+                <p>$!{remark}</p>
+            #end
+        </div>
+
+        #if($editFlag == 1)
+        <section class="footer">
+            <button type="button" id="btn-submit" class="btn-submit" data-action="doSumbit">提交</button>
+        </section>
+        #end
+    </form>
+
+    ##------------------------------------
+    ## scripts
+    ##------------------------------------
+    __FRAMEWORK_CONFIG__
+    <script>
+    require(['page/loan-apply-2/loan-apply-2'],function(app){
+        console.log(app)
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+## 获取还款列表
+
+#if($repayList58)
+
+    ## 获取列表大小
+    #set($repayList58Size = $repayList58.size())
+
+    ## 行数奇偶判断
+    #set($rows = $repayList58Size / 2)
+
+    #if($repayList58Size % 2 == 1)
+        #set($rows = $rows + 1)
+    #end
+
+    ## 合并行
+    #set($rowspan = $rows + 1)
+
+    ## 索引从0开始
+    #set($index = $rows - 1)
+
+    ## 跨行
+    <tr>
+        <td rowspan="$!{rowspan}">8</td>
+        <td rowspan="$!{rowspan}">月租金额及还款时间</td>        
+        <td class="nowrap">期数</td>
+        <td>当期应还金额(元)</td>
+        <td class="nowrap">期数</td>
+        <td>当期应还金额(元)</td>
+    </tr> 
+
+    ## 循环输出还款列表
+    #foreach($i in [0..$index])
+        #set($k = $i + 1)
+        #set($j = $i + $rows)
+        #set($p = $j + 1)
+
+        <tr>
+            <td>$k</td>
+            <td>$!{repayList58.get($i)}</td>
+
+            #if($p <= $repayList58Size)           
+                <td>$p</td>
+                <td>$!{repayList58.get($j)}</td>
+            #else
+                <td></td>
+                <td></td>
+            #end
+        </tr>
+    #end
+#else 
+    <tr>
+        <td rowspan="2">7</td>
+        <td rowspan="2">月租金额及还款时间</td>        
+        <td class="nowrap">期数</td>
+        <td>当期应还金额(元)</td>
+        <td class="nowrap">期数</td>
+        <td>当期应还金额(元)</td>
+    </tr> 
+    <tr>  
+        <td colspan="4">暂无相关数据</td>
+    </tr> 
+#end

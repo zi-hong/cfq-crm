@@ -1,0 +1,135 @@
+@import '/static/scss/helpers/rem';
+/* protocol */
+
+.nowrap {
+    white-space: nowrap;
+}
+
+
+/* 协议 */
+.protocol {
+    font-size: .25rem;
+    line-height: .5rem;
+
+    padding: .3rem;
+
+    text-align: left;
+
+    background-color: #fff;
+}
+.protocol .title {
+    font-size: .35rem;
+    font-weight: bold;
+}
+.protocol .content p {
+    margin: .1rem 0;
+
+    text-indent: 2em;
+    word-break: break-all;
+}
+
+
+.protocol {
+    font-size: .2rem;
+
+    padding-bottom: 1.5rem;
+
+    word-break: break-all;
+    .logo {
+        height: rem(42px);
+        margin-bottom: rem(80px);
+        .left {
+            float: left;
+
+            width: rem(230px);
+            height: rem(42px);
+        }
+        .right {
+            float: right;
+
+            width: rem(146px);
+            height: rem(42px);
+        }
+    }
+    h1 {
+        font-size: .3rem;
+
+        margin-top: .5rem;
+    }
+    h3 {
+        font-size: .25rem;
+        font-weight: 800;
+    }
+    h4 {
+        line-height: .4rem;
+    }
+    p {
+        line-height: .4rem;
+
+        margin: .1rem 0;
+        &.ti0 {
+            text-indent: 0;
+        }
+    }
+    .underline {
+        text-decoration: underline;
+    }
+    .tc {
+        text-align: center;
+    }
+    .b {
+        font-weight: bold;
+    }
+    .i {
+        font-style: italic;
+    }
+    .pr {
+        position: relative;
+    }
+    .seal {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .signatureA {
+        display: table;
+        span {
+            display: table-cell;
+
+            vertical-align: top;
+        }
+        img {
+            width: 60px;
+        }
+    }
+    .table {
+        line-height: 1.5;
+
+        width: 100%;
+
+        border-spacing: 0;
+        border-collapse: collapse;
+        td {
+            padding: 5px;
+
+            vertical-align: top;
+
+            border: 1px solid #ddd;
+            p {
+                line-height: .35rem;
+
+                margin: 0;
+
+                text-indent: 0;
+            }
+        }
+        &.table-border-none {
+            td {
+                border: none;
+            }
+        }
+    }
+    .olist {
+        padding-left: 2em;
+    }
+}

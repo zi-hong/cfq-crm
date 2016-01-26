@@ -1,0 +1,106 @@
+{
+    "contractID": "CFQJK01001220001",
+
+    "realName": "张三",
+    "idNumber": "130427199002221159",
+    "repayUserName": "还款账户名称",
+    "repayBankName": "0104",
+    "repayBankCard": "622609091341xxxx",
+
+    "loanUserName": "借款账户名称",
+    "loanBankName": "0104",
+    "loanBankCard": "243143214341xxxx",
+
+    "residentAddress": "北京市朝阳区南礼士路8号",
+    "companyName": "北京市小米科技有限公司",
+    "companyAddress": "北京市海淀区五彩城",
+    "mobile": "18601127127",
+    "contactName": "刘军",
+    "contactMobile": "13832001111",
+
+    "salerIDNumber": "13042719xxxxx21159",
+    "salerUserName": "还款账户名称",
+    "salerBankName": "0102",
+    "salerBankCard": "622609091341xxxx",
+
+
+    "vehicleBrand": "大众",
+    "vehicleType": "帕萨特",
+    "vehicleDealers": "卓杰行",
+    "vehicleColor": "黑",
+    "vehicleChassisNum": "12wYWERW-2342",
+    "vehicleFirstSetCardDate": "2015-01-02",
+    "vehicleLicense": "京-Q201243124",
+    "vehicleTotalPrice": "120000",
+    "vehicleHrbAmount": "60000",
+    "vehicleHrbAmountCapital": "陆萬圆",
+    "vehicleServiceCost": "服务费用",
+    "vehicleAmount": "190000",
+
+    "leaseTerms": 24,
+    "repayStages": 24,
+    "repayDayPerMonth": 15,
+    "repayList": [{
+        "principalInterest": 3300.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 1200.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }, {
+        "principalInterest": 900.28,
+        "serviceCost": 33.28
+    }],
+
+    "repayList58": [3300.28, 1200.28, 900.28, 900.28, 900.28, 900.28, 900.28, 900.28, 900.28, 900.28, 900.28, 900.28
+    ],
+
+    "loanYearStart": "2015",
+    "loanMonthStart": "11",
+    "loanDayStart": "11",
+
+    "loanYearEnd": "2016",
+    "loanMonthEnd": "11",
+    "loanDayEnd": "11",
+
+    "signature": "/static/img/contract/signature.jpg",
+    "signatureC": "/static/img/contract/signature.jpg",
+
+    "AYear": "2015",
+    "AMonth": "11",
+    "ADay": "11",
+
+    "BYear": "2015",
+    "BMonth": "12",
+    "BDay": "12",
+
+    "CYear": "2015",
+    "CMonth": "13",
+    "CDay": "13"
+}

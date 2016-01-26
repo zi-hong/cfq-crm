@@ -1,0 +1,173 @@
+#set($itemMap = [
+    {
+        "id":"registrationCertificate",
+        "imgSrc":$registrationCertificate,
+        "title":"机动车登记证书(抵押页)",
+        "required" : true,
+        "maxuploadnum":1
+    },{
+        "id":"commercialInsurance",
+        "imgSrc":$commercialInsurance,
+        "title":"商业险保单原件",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"compulsoryInsurance",
+        "imgSrc":$compulsoryInsurance,
+        "title":"交强险复印件",
+        "required":true,
+        "maxuploadnum":1
+    },{
+        "id":"carPhoto",
+        "imgSrc":$carPhoto,
+        "title":"车辆照片(车主、客户经理与车辆及车牌合照;非必传)",
+        "required":false,
+        "maxuploadnum":1
+    },{
+        "id":"transferInvoice",
+        "imgSrc":$transferInvoice,
+        "title":"过户发票原件",
+        "required":true,
+        "maxuploadnum":1
+    }
+])
+## 获取车辆照片，抵押页列表数
+#set($mortgagePageSize = $mortgagePage.size())
+#set($carPhotoSize = $carPhoto.size())
+
+#*
+* 遍历items
+*#
+#macro(Items $arr)
+    #foreach( $i in $arr)
+        #if($i < $mortgagePageSize && $mortgagePage.get($i))
+            <div class="m-item completed" style='background-image:url($!{mortgagePage[$i]})' data-action="doReview" data-src="$!{mortgagePage[$i]}">
+            </div>
+        #else
+            <div class="m-item"></div>
+        #end
+    #end
+#end
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    #set($title = "放车申请")
+    #parse('/widget/header/header.vm')
+    <link rel="stylesheet" href="./car-apply.scss">
+</head>
+<body>
+    #set($title = "放车申请")
+    #set($backHref = "javascript:history.back()")
+    #parse('/widget/navbar/navbar.vm')
+
+    <form method="post" id="form">
+    <section class="container">
+    <input type="hidden" class="userId" name = "userId" value='$!{userId}' />
+    <input type="hidden" class="editFlag" value='$!{editFlag}' />
+
+
+        <div class="module">
+
+            <div class="car-item flex-box">
+                <div class="col-1">GPS已安装</div>
+                ##0无1有
+                #if($GPSinstall=="0")
+                <div class="toggle-btn toggle-off">
+                    <span data-alternative="on">off</span>
+                    <input type="hidden" name="GPSinstall" value="0" data-alternative="1" />
+                </div>
+                #else
+                <div class="toggle-btn toggle-on">
+                    <span data-alternative="off">on</span>
+                    <input type="hidden" name="GPSinstall" value="1" data-alternative="0" />
+                </div>
+                #end
+            </div>
+
+            <div class="car-item flex-box">
+                <div class="col-1">已办理抵押</div>
+                ##0无1有
+                #if($mortage=="0")
+                <div class="toggle-btn toggle-off">
+                    <span data-alternative="on">off</span>
+                    <input type="hidden" name="mortage" value="0" data-alternative="1" />
+                </div>
+                #else
+                <div class="toggle-btn toggle-on">
+                    <span data-alternative="off">on</span>
+                    <input type="hidden" name="mortage" value="1" data-alternative="0" />
+                </div>
+                #end
+            </div>
+
+            <div class="car-item flex-box">
+                <div class="col-1">保单已生效</div>
+                ##0无1有
+                #if($insurance=="0")
+                <div class="toggle-btn toggle-off">
+                    <span data-alternative="on">off</span>
+                    <input type="hidden" name="insurance" value="0" data-alternative="1" />
+                </div>
+                #else
+                <div class="toggle-btn toggle-on">
+                    <span data-alternative="off">on</span>
+                    <input type="hidden" name="insurance" value="1" data-alternative="0" />
+                </div>
+                #end
+            </div>
+
+            #foreach( $item in $itemMap)
+            <dl class="m-list no-brd" data-require='$item.required'>
+                <dt>
+                    $!{item.title}
+                </dt>
+                <dd>
+                    <input type="file" accept="image/*" name='$item.id' id='$item.id' data-maxuploadnum='$item.maxuploadnum'>
+                    #if($editFlag == 1)
+                    <label class="m-item" for='$item.id'></label>
+                    #end
+
+                    #if($item.imgSrc)
+                        <div class="m-item completed" style="background-image:url($!{item.imgSrc})"  data-action="doReview" data-src="$!{item.imgSrc}">
+                        </div>
+                    #else
+                        <div class="m-item"></div>
+                    #end
+
+                    <div class="m-item"></div>
+                    <div class="m-item"></div>
+                </dd>
+            </dl>
+            #end
+        </div>
+    </section>
+
+    <div class="remark">
+        #if($!{editFlag} == 1)
+            <textarea rows="5" name="remark" class="remark-textarea" style="width:100%;" placeholder="备注及其他情况请在此说明">$!{remark}</textarea>
+        #else
+            <p>补充说明:</p>
+            <p>$!{remark}</p>
+        #end
+    </div>
+    #if($editFlag == 1)
+    <section class="footer">
+        <button type="button" id="btn-submit" class="btn-submit" data-action="doSumbit">提交</button>
+    </section>
+    #end
+    </form>
+
+    ##------------------------------------
+    ## scripts
+    ##------------------------------------
+    __FRAMEWORK_CONFIG__
+    <script>
+    require(['page/car-apply/car-apply'],function(app){
+    console.log(app)
+    });
+    </script>
+</body>
+</html>

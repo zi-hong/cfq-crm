@@ -1,0 +1,80 @@
+
+##车辆抵押合同
+
+<div class="protocol">
+    <div class="logo">
+        <img src="/static/img/contract/logo_58.png" class="right" />
+    </div>
+    <h1 class="tc b">$!{title}</h1>
+    <h3 class="tc"></h3>
+    <p class="tc">合同编号：（ #ModuleContract( $contractID ) ）</p>
+
+    <p class="b">抵押人（以下简称甲方）：$!{realName} </p>       
+    <p>身份证号：$!{idNumber}</p>
+    <p>联系方式：$!{mobile}</p>
+    <p class="b">抵押权人（以下简称乙方）：伍捌（深圳）融资租赁有限公司</p>
+    <p>地    址：北京市朝阳区北苑路乙108号北美国际商务中心E座</p>
+    <p>为确保甲方与乙方签订编号为 #ModuleContract($contractID true) 的《融资租赁回租合同》（以下简称主合同）的履行，为保障乙方债权的实现，甲方愿意以其占有、支配、使用的车辆作为抵押物抵押给乙方，双方经协商一致订立本合同。</p>
+    <p class="b">一、所担保的债权范围：</p>
+    <p>包括主合同项下的所有租金、延迟罚息等所有应付款项，甲方应在担保范围内承担担保责任。</p>
+    <p class="b">二、抵押物：</p>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td width="25%">品牌</td>
+                <td width="25%">型号</td>
+                <td width="25%">车牌号</td>
+                <td>车架号</td>
+            </tr>
+            <tr>
+                <td>$!{vehicleBrand}</td>
+                <td>$!{vehicleType}</td>
+                <td>$!{vehicleLicense}</td>
+                <td>$!{vehicleChassisNum}</td>
+            </tr>
+        </tbody>
+    </table>
+                
+    <p>三、如根据法律规定或合同约定，抵押物应粘贴标签或烙印的，甲方应协助乙方或登记机关办理，全部费用由甲方负担。</p>
+    <p>四、甲方在此声明：甲方保证抵押物的权利和质量不存在任何瑕疵，若乙方因此遭受任何损失或损害，甲方应给予全额赔偿。甲方应积极协助乙方到相应的抵押登记机关办理抵押物登记手续。</p>
+    <p class="b">五、甲乙双方一致确认，本合同项下的抵押权自本合同生效时设立。</p>
+    <p>六、本合同存续期间，甲方应保证妥善保管抵押物，使抵押物处于正常的工作或存在状态。所有因抵押物支出的税费、修理、保养等一切费用，应由甲方负责，与乙方无涉。同时，除非取得乙方的书面同意，甲方不得擅自将抵押物出售、转让、赠与、再抵押、转租或以其他方式处置。</p>
+    <p>七、抵押物的现状发生变动时，不论其原因如何，甲方应及时通知乙方。甲方的行为足以使抵押物价值减少的，乙方有权要求甲方停止其行为。抵押物价值减少的，乙方有权要求恢复抵押物的价值，或者提供与减少的价值相应的担保。甲方不恢复抵押物的价值也不提供担保的，乙方有权要求甲方提前清偿主合同项下的债务。</p>
+    <p>八、如乙方依据法律法规及与甲方签署之相关协议约定向甲方发出通知，甲方应负责将抵押物放置于乙方指定处。</p>
+    <p>九、甲方应就抵押物，向乙方同意的保险公司投保乙方所指定的保险，并应以乙方为被保险人或唯一<p>受益人，保险金额及条件应取得乙方的同意，所有保单及保费收据均交由乙方保管。</p>
+    <p>十、若甲方不履行主合同项下的任何债务，乙方即有权立即执行本合同项下的抵押权。乙方在行使抵押权时，有权依据法律规定，立刻占有、管理抵押物，并经与甲方协商对抵押物进行折价以抵偿甲方在主合同项下所欠的债务或对抵押物进行拍卖、变卖以取得价款优先受偿。若甲乙双方未就抵押权实现方式达成协议的，乙方有权请求人民法院拍卖、变卖抵押物。</p>
+    <p>十一、如双方在本协议履行过程中发生任何争议，应友好协商解决；如协商不成，均提交北京市朝阳区人民法院诉讼解决。</p>
+    <p>十二、本合同书所载甲方和乙方均包括其继承人、受让人或破产管理人。</p>
+    <p>十三、本合同自抵押人与抵押权人签署并盖章之日起生效。本合同共叁份。甲方执壹份，乙方执贰份，具有同等法律效力。</p>
+    <br/>
+    <table class="table table-border-none">
+        <tbody>
+            <tr>
+                <td width="50%">
+                    <p class="signatureA">
+                        <span>甲方（签字）：</span>
+                        #if($signature)
+                        <img src="$!{signature}" />
+                        #end
+                    </p>
+                </td>
+                <td>
+                    <div class="pr">
+                        <div class="seal"><img src="/static/img/contract/seal-58.png" width="100%" /></div>
+                        <p>乙方(盖章)：</p>
+                        <br/>
+                        <p>伍捌（深圳）融资租赁有限公司</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>签订日期：#ModuleContract( $AYear false )年 #ModuleContract( $AMonth false)月 #ModuleContract( $ADay false)日</p>
+                </td>
+                <td>
+                    <p>签订日期：#ModuleContract( $BYear false )年 #ModuleContract( $BMonth false)月 #ModuleContract( $BDay false)日</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

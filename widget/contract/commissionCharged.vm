@@ -1,0 +1,41 @@
+
+##委托扣款授权书
+
+<div class="protocol">
+    <div class="logo">
+        <img src="/static/img/contract/logo_58.png" class="right" />
+    </div>
+    <h1 class="tc b">$!{title}</h1>
+    <h3 class="tc"></h3>
+
+    <p>兹证明：</p>
+    <p>本人#ModuleContract($realName true)（身份证号码：#ModuleContract($idNumber true) ）已与伍捌（深圳）融资租赁有限公司签署《融资租赁回租合同》、与伍捌（深圳）融资租赁有限公司及哈尔滨银行股份有限公司签署《哈尔滨银行-58消费贷（车分期）联合贷款合同》。根据上述协议规定，本人现同意并授权伍捌（深圳）融资租赁有限公司、哈尔滨银行股份有限公司委托合作机构从本人所属以下账户中扣划上述协议约定的所有相关款项金额。</p>
+    <p>户名：#ModuleContract($repayUserName true) </p>                             
+    <p>开户银行名称：#ModuleContract($!{bankMap.get("$!{repayBankName}")} true)</p>
+    <p>账号：#ModuleContract($repayBankCard true)</p>
+    <p>本人已阅读并了解：</p>
+    <p>1.  本授权书采用电子文本形式制成，由本人通过58车分期线上平台签署并永久保存在58车分期运营主体为此设立的专用服务器上备查。本人认可该形式的授权法律效力。</p>
+    <p>2.  本授权书自本人通过58车分期线上签字操作并通过58车分期线上系统生成即视为生效。</p>
+    <p>3.  本授权书作为《融资租赁回租合同》、《哈尔滨银行-58车分期联合贷款合同》的有效组成部分，与《融资租赁回租合同》、《哈尔滨银行-58 车分期联合贷款合同》同步在58车分期线上签署生效，具有同等法律效力及有效期限。</p>
+    <br/>
+    <table class="table table-border-none">
+        <tbody>
+            <tr>
+                <td>
+                    <p class="signatureA">
+                        <span>签字：</span>
+                        #if($signature)
+                        <img src="$!{signature}" />
+                        #end
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>签订日期：#ModuleContract( $BYear false )年 #ModuleContract( $BMonth false)月 #ModuleContract( $BDay false)日</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

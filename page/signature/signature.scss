@@ -1,0 +1,118 @@
+@import "/static/scss/zepto.info";
+
+/* 常用按钮 */
+@mixin button($backgroundColor: #ff662c, $color: #fff, $borderColor: #ff662c, $borderRadius: 22px) {
+    display: inline-block;
+
+    width: 100%;
+    height: 44px;
+    border-radius: $borderRadius;
+    border: 1px solid $borderColor;
+    background-color: $backgroundColor;
+    color: $color;
+    font-size: 14px;
+
+    line-height: 44px;
+    text-align: center;
+    &:active {
+        opacity: .6;
+    }
+    &.disabled {
+        border-color: #dbdbdb !important;
+        background-color: #dbdbdb !important;
+    }
+    &.fixed {
+        position: fixed;
+        bottom: 0;
+    }
+    &.no-radius {
+        border-radius: 0;
+    }
+}
+
+
+body {
+    background-color: #fff;
+}
+.signature {
+    width: 100%;
+    background-color: #fff;
+    .row-canvas {
+        height: 100%;
+    }
+    .row-canvas canvas {
+        display: block;
+        font-size: 10px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+    }
+    .row-buttons {
+        position: fixed;
+        bottom: 18px;
+        width: 100%;
+        height: 44px;
+        display: -webkit-box;
+        width: 100%;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        -webkit-justify-content: space-between;
+        -moz-justify-content: space-between;
+        justify-content: space-between;
+    }
+}
+
+
+button {
+    @include button(#fff, #999, #999, 22px);
+
+    &:nth-child(1) {
+        -webkit-box-flex: 2;
+        display: block;
+        margin: 0 5px;
+    }
+    &:nth-child(2) {
+        background-color: #ff662c;
+        color: #fff;
+        border-color: #ff662c;
+        -webkit-box-flex: 1;
+        display: block;
+        margin: 0 5px;
+    }
+}
+
+
+.signature-example {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    width: 100%;
+    //height: 100% !important;
+    background-color: #000;
+    opacity: .8;
+
+    .row {
+        text-align: center;
+    }
+    .row.row-1 {
+        margin-top: 15%;
+        margin-bottom: 15%;
+    }
+    .row.row-2 {
+        font-size: 18px;
+        color: #fff;
+        margin-bottom: 9%;
+    }
+    .row .img-h {
+        height: 120px;
+    }
+    .row button {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+        font-size: 18px;
+        width: 40%;
+        margin: 0 auto;
+    }
+}

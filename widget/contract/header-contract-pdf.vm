@@ -1,0 +1,10 @@
+## 宏定义
+#parse('/widget/contract/macro.vm')
+
+<html xmlns="http://www.w3.org/1999/xhtml">   
+<head>
+<meta charset="utf-8"/>
+<title>58车分期 - #if($title) $title #else 合同#end</title>
+<link rel="stylesheet" type="text/css" href="./contract-pdf.scss?__inline"/>
+</head>
+<body>

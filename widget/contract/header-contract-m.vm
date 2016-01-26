@@ -1,0 +1,9 @@
+## 宏定义
+#parse('/widget/contract/macro.vm')
+
+## 页面头
+#parse('/widget/header/header-contract.vm')
+
+<link rel="stylesheet" type="text/css" href="./contract.scss">
+
+#set($backHref = "javascript:history.back()")

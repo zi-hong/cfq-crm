@@ -1,0 +1,30 @@
+<div id="drop-down-wrapper">
+    <div class="arrow-up"></div>
+    <div id="drop-down-menu">
+        <ul>
+            <%if(__JSON_ON_PAGE__.isSignature != 1) {%>
+            <a href="/market/customer/signature?userId=<%=__JSON_ON_PAGE__.userId%>
+                ">
+                <li>
+                    <img class="li-contract" />
+                    <span>签署合同</span>
+                </li>
+            </a>
+            <%}%>
+            <a href="/market/customer/loan/apply?userId=<%=__JSON_ON_PAGE__.userId%>
+                ">
+                <li>
+                    <img class="li-loan-apply" />
+                    <span>放款申请</span>
+                </li>
+            </a>
+            <a href="/market/customer/car/apply?userId=<%=__JSON_ON_PAGE__.userId%>
+                ">
+                <li>
+                    <img class="li-car-apply" />
+                    <span>放车申请</span>
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
